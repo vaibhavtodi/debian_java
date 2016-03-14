@@ -15,9 +15,10 @@ WORKDIR         $home
 
 # Installing & Setting up JAVA --->  OpenJdk-8
 RUN             DEBIAN_FRONTEND=noninteractive apt-get  update                                                                         \
+      &&        apt-get  install  -y   software-properties-common python-software-properties                                           \
       &&        add-apt-repository     ppa:openjdk-r/ppa                                                                               \
       &&        apt-get  update                                                                                                        \
-      &&        apt-get  install  -y  openjdk-8-jre
+      &&        apt-get  install  -y   openjdk-8-jre
 
 # Copy entrpoint.sh
 COPY            entrypoint.sh   /entrypoint.sh
